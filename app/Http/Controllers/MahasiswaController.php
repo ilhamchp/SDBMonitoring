@@ -58,7 +58,7 @@ class MahasiswaController extends Controller
             ];
         }else{
             return [
-                'message' => 'NIM ' + $nim + ' tidak terdaftar!',
+                'message' => 'NIM ' . $nim . ' tidak terdaftar!',
                 'code' => 400
             ];
         }

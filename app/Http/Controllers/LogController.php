@@ -50,13 +50,13 @@ class LogController extends Controller
         if(!Log::create($request->all())){
             // Jika update gagal
             return [
-                'message' => 'Gagal menyimpan kegiatan user ' + $request->nim_pengguna,
+                'message' => 'Gagal menyimpan kegiatan user ' . $request->nim_pengguna,
                 'code' => 400
             ];
         }else {
             // Jika update sukses
             return [
-                'message' => 'Berhasil menyimpan kegiatan user ' + $request->nim_pengguna,
+                'message' => 'Berhasil menyimpan kegiatan user ' . $request->nim_pengguna,
                 'code' => 201
             ];
         }

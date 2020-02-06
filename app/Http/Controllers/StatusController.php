@@ -61,13 +61,13 @@ class StatusController extends Controller
         ])){
             // Jika update gagal
             return [
-                'message' => 'Gagal aktivasi user ' + $nim_pengguna,
+                'message' => 'Gagal aktivasi user ' . $nim_pengguna,
                 'code' => 400
             ];
         } else {
             // Jika update sukses
             return [
-                'message' => 'Berhasil aktivasi user ' + $nim_pengguna,
+                'message' => 'Berhasil aktivasi user ' . $nim_pengguna,
                 'code' => 201
             ];
         }
@@ -83,13 +83,13 @@ class StatusController extends Controller
         ])){
             // Jika update gagal
             return [
-                'message' => 'Gagal menonaktifkan user ' + $nim_pengguna,
+                'message' => 'Gagal menonaktifkan user ' . $nim_pengguna,
                 'code' => 400
             ];
         }else {
             // Jika update sukses
             return [
-                'message' => 'Berhasil menonaktifkan user ' + $nim_pengguna,
+                'message' => 'Berhasil menonaktifkan user ' . $nim_pengguna,
                 'code' => 201
             ];
         }
