@@ -17,7 +17,7 @@ class CreateStatusTable extends Migration
             $table->String('nim_pengguna');
             $table->foreign('nim_pengguna')->references('nim')->on('mahasiswa');
             $table->Integer('nomor_pc');
-            $table->Integer('status');
+            $table->Integer('status_pengguna');
             $table->timestamp('last_modified');
         });
     }

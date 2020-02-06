@@ -17,7 +17,7 @@ class StatusSeeder extends Seeder
             Status::create( [
                 'nim_pengguna'=>$mhsw->nim,
                 'nomor_pc'=>'0',
-                'status'=>'0'
+                'status_pengguna'=>'0'
                 ]);
         }
     }

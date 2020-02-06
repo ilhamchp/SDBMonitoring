@@ -11,5 +11,5 @@ class Status extends Model
     const CREATED_AT = 'last_modified';
     const UPDATED_AT = 'last_modified';
     protected $table = 'status';
-    protected $fillable = ['nim_pengguna','nomor_pc','status'];
+    protected $fillable = ['nim_pengguna','nomor_pc','status_pengguna'];
 }
