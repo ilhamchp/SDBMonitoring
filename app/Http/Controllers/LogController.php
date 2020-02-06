@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class LogController extends Controller
 {
+    /*----------------------*/
+    /*--- BASIC CRUD API ---*/
+    /*----------------------*/
+
     // mengambil semua data
     public function all()
     {
@@ -16,12 +20,6 @@ class LogController extends Controller
     public function show($nim_pengguna)
     {
         return Log::find($nim_pengguna);
-    }
-
-    // menambah data
-    public function store(Request $request)
-    {
-        return Log::create($request->all());
     }
 
     // mengubah data
@@ -38,5 +36,27 @@ class LogController extends Controller
         $log = Log::find($log_id);
         $log->delete();
         return 204;
+    }
+
+    /*----------------------------------------*/
+    /*--- API UNTUK SISTEM ABSENSI LAB SDB ---*/
+    /*----------------------------------------*/
+    
+    // menyimpan data kegiatan
+    public function store(Request $request)
+    {
+        if(!Log::create($request->all())){
+            // Jika update gagal
+            return [
+                'message' => 'Gagal menyimpan kegiatan user ' + $request->nim_pengguna,
+                'code' => 400
+            ];
+        }else {
+            // Jika update sukses
+            return [
+                'message' => 'Berhasil menyimpan kegiatan user ' + $request->nim_pengguna,
+                'code' => 201
+            ];
+        }
     }
 }

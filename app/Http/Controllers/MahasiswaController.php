@@ -9,16 +9,14 @@ use App\Mahasiswa;
 
 class MahasiswaController extends Controller
 {
+    /*----------------------*/
+    /*--- BASIC CRUD API ---*/
+    /*----------------------*/
+
     // mengambil semua data
     public function all()
     {
         return Mahasiswa::all();
-    }
-
-    // mengambil data by nim (primary key)
-    public function show($nim)
-    {
-        return Mahasiswa::find($nim);
     }
 
     // menambah data
@@ -41,5 +39,28 @@ class MahasiswaController extends Controller
         $mahasiswa = Mahasiswa::find($nim);
         $mahasiswa->delete();
         return 204;
+    }
+
+    /*----------------------------------------*/
+    /*--- API UNTUK SISTEM ABSENSI LAB SDB ---*/
+    /*----------------------------------------*/
+
+    // mengambil data by nim (primary key)
+    public function show($nim)
+    {
+        $mahasiswa = Mahasiswa::find($nim);
+        if($mahasiswa!=null){
+            return [
+                'nim' => $mahasiswa->nim,
+                'nama' => $mahasiswa->nama,
+                'tanggal_lahir' => $mahasiswa->tanggal_lahir,
+                'code' => 200
+            ];
+        }else{
+            return [
+                'message' => 'NIM ' + $nim + ' tidak terdaftar!',
+                'code' => 400
+            ];
+        }
     }
 }

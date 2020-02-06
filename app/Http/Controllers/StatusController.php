@@ -59,14 +59,36 @@ class StatusController extends Controller
         ])){
             // Jika update gagal
             return [
-                'message' => 'Bad Request',
-                'code' => 400,
+                'message' => 'Gagal aktivasi user ' + $nim_pengguna,
+                'code' => 400
             ];
         } else {
             // Jika update sukses
             return [
-                'message' => 'OK',
-                'code' => 201,
+                'message' => 'Berhasil aktivasi user ' + $nim_pengguna,
+                'code' => 201
+            ];
+        }
+    }
+
+    // nonaktifkan status user
+    public function deactivate($nim_pengguna)
+    {
+        $status = Status::where('nim_pengguna',$nim_pengguna);
+        if(!$status->update([
+            'nomor_pc' => '0',
+            'status_pengguna' => '0'
+        ])){
+            // Jika update gagal
+            return [
+                'message' => 'Gagal menonaktifkan user ' + $nim_pengguna,
+                'code' => 400
+            ];
+        }else {
+            // Jika update sukses
+            return [
+                'message' => 'Berhasil menonaktifkan user ' + $nim_pengguna,
+                'code' => 201
             ];
         }
     }
