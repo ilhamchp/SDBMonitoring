@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// import file model Mahasiswa
+use App\Log;
 
 class LogController extends Controller
 {
