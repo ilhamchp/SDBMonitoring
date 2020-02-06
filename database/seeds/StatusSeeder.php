@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Mahasiswa;
+use App\Status;
 class StatusSeeder extends Seeder
 {
     /**
@@ -11,9 +12,9 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-        $mhs = \App\Mahasiswa::all();
+        $mhs = Mahasiswa::all();
         foreach($mhs as $mhsw){
-            \App\Status::create( [
+            Status::create( [
                 'nim_pengguna'=>$mhsw->nim,
                 'nomor_pc'=>'0',
                 'status'=>'0'
