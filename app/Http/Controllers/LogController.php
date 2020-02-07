@@ -18,6 +18,12 @@ class LogController extends Controller
         return Log::all();
     }
 
+    // menyimpan data
+    public function store(Request $request)
+    {
+        return Log::create($request->all());
+    }
+
     // mengambil data by nim_pengguna
     public function show($nim_pengguna)
     {
@@ -45,16 +51,24 @@ class LogController extends Controller
     /*----------------------------------------*/
     
     // menyimpan data kegiatan
-    public function store(Request $request)
+    public function savedata(Request $request)
     {
-        if(!Log::create($request->all())){
-            // Jika update gagal
+        $data= $request->json()->all();
+        // dd($data['nama']);
+        if(!Log::create( [
+            'nim_pengguna'=> $data['nim'],
+            'kegiatan'=> $data['kegiatan'],
+            'no_pc'=> $data['no_pc'],
+            'waktu_masuk'=> $data['waktu_masuk'],
+            'waktu_keluar'=> $data['waktu_keluar']
+        ])){
+            // Jika insert gagal
             return [
                 'message' => 'Gagal menyimpan kegiatan user ' . $request->nim_pengguna,
                 'code' => 400
             ];
         }else {
-            // Jika update sukses
+            // Jika insert sukses
             return [
                 'message' => 'Berhasil menyimpan kegiatan user ' . $request->nim_pengguna,
                 'code' => 201

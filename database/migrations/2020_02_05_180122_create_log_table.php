@@ -19,8 +19,8 @@ class CreateLogTable extends Migration
             $table->foreign('nim_pengguna')->references('nim')->on('mahasiswa');
             $table->String('kegiatan');
             $table->String('no_pc');
-            $table->Date('waktu_masuk');
-            $table->Date('waktu_keluar');
+            $table->DateTime('waktu_masuk');
+            $table->DateTime('waktu_keluar');
             $table->timestamp('last_modified');
         });
     }

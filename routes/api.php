@@ -36,6 +36,7 @@ Route::delete('/status/{nim_pengguna}','StatusController@delete');
 // menambahkan route untuk log
 Route::get('/log','LogController@all');
 Route::get('/log/{nim_pengguna}','LogController@show');
-Route::post('/log','LogController@store');                  // menyimpan log
+Route::post('/log','LogController@store');
+Route::post('/log/savedata','LogController@savedata');          // save log data
 Route::put('/log/{log_id}','LogController@update');
 Route::delete('/log/{log_id}','LogController@delete');
